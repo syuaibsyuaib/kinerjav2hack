@@ -1,5 +1,16 @@
 function kinerjahack() {
 
+  //$('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none" onclick="kinerjahack()">INJECT</button>')
+
+  var modalLoading = `<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/04de2e31234507.564a1d23645bf.gif">
+    </div>
+  </div>
+</div>`
+
+$('body').prepend(modalLoading)
 
   let klasifikasi = {
     "Tersedianya data hasil analisa kebutuhan dan pengendalian formasi guru dan tenaga kependidikan PAUD": "13418",
@@ -418,6 +429,7 @@ function kinerjahack() {
   }
 
   function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan) {
+    $('#loadingModal').modal('show')
     let urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
 
     let payloadTambah = {
@@ -460,6 +472,7 @@ function kinerjahack() {
       }).then(resubah => {
         return resubah.text()
       }).then(respubah => {
+        $('#loadingModal').modal('hide')
         console.log(respubah)
       })
     })
