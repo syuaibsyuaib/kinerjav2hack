@@ -1,6 +1,6 @@
 function kinerjahack() {
 
-  //$('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none" onclick="kinerjahack()">INJECT</button>')
+  //$('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none" onclick="kinerjahack()">INJECT</button><script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@main/kinerjav2hack.js"></script>')
 
   var modalLoading = `<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" data-backdrop="static">
   <div class="modal-dialog" role="document">
