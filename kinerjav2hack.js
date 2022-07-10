@@ -3,14 +3,14 @@ function kinerjahack() {
   //$('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none" onclick="kinerjahack()">INJECT</button><script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@main/kinerjav2hack.js"></script>')
 
   var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" data-backdrop="static">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/04de2e31234507.564a1d23645bf.gif">
-    </div>
+  <div class="modal-dialog" style="height: 95%;" role="document">
+  <div class="modal-content" style="top:30%;width: fit-content;border: none;box-shadow: none;background-color: transparent;margin: auto;">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/04de2e31234507.564a1d23645bf.gif">
   </div>
+</div>
 </div>`
 
-$('body').prepend(modalLoading)
+  $('body').prepend(modalLoading)
 
   let klasifikasi = {
     "Tersedianya data hasil analisa kebutuhan dan pengendalian formasi guru dan tenaga kependidikan PAUD": "13418",
