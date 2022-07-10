@@ -473,6 +473,7 @@ $('body').prepend(modalLoading)
         return resubah.text()
       }).then(respubah => {
         $('#loadingModal').modal('hide')
+        alert('Berhasil ner...')
         console.log(respubah)
       })
     })
