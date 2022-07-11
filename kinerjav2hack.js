@@ -1,5 +1,5 @@
 /*$('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">TAMBAH</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
-$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.5b/kinerjav2hack.js"></script>')*/
+$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.5/kinerjav2hack.js"></script>')*/
 
 var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" data-backdrop="static">
   <div class="modal-dialog" style="height: 95%;" role="document">
@@ -20,7 +20,11 @@ let klasifikasi = {
   "Tersedianya data rasio ketersediaan sekolah /penduduk usia sekolah pendidikan dasar": "14322",
   "Tersedianya data pengelolaan Pendidikan Sekolah Dasar": "14324",
   "Mengelola Data Peningkatan Kompetensi Pendidik dan Tenaga Kependidikan":"13492",
-  "Tersedianya data kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD":"13493"
+  "Tersedianya data kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD":"13493",
+  "Tersusunnya data kompetensi pendidik dan tenaga kependidikan PAUD":"13473",
+  "Tersusunnya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan PAUD":"13475",
+  "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD":"13476",
+  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan PAUD":"13477"
 }
 
 let kuant = {
