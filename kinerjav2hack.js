@@ -19,19 +19,19 @@ let klasifikasi = {
   "Tersedianya data rasio guru dan murid sekolah Pendidikan Dasar": "14321",
   "Tersedianya data rasio ketersediaan sekolah /penduduk usia sekolah pendidikan dasar": "14322",
   "Tersedianya data pengelolaan Pendidikan Sekolah Dasar": "14324",
-  "Mengelola Data Peningkatan Kompetensi Pendidik dan Tenaga Kependidikan":"13492",
-  "Tersedianya data kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD":"13493",
-  "Tersusunnya data kompetensi pendidik dan tenaga kependidikan PAUD":"13473",
-  "Tersusunnya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan PAUD":"13475",
-  "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD":"13476",
-  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan PAUD":"13477",
-  "Tersusunnya kompetensi pendidik dan tenaga kependidikan":"12365",
-  "Terlaksananya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan":"12366",
-  "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan":"12367",
-  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan":"12368",
-  "Tersedianya data Persentase kompetensi pendidik dan tenaga kependidikan Pendidikan Dasar":"10970",
-  "Tersedianya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan Pendidikan Dasar":"10994",
-  "Tersedianya data kualifikasi dan kompetensi, dan peningkatan kesejahteraan dan pemindahan guru dan tenaga kependidikan":"11008"
+  "Mengelola Data Peningkatan Kompetensi Pendidik dan Tenaga Kependidikan": "13492",
+  "Tersedianya data kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD": "13493",
+  "Tersusunnya data kompetensi pendidik dan tenaga kependidikan PAUD": "13473",
+  "Tersusunnya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan PAUD": "13475",
+  "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD": "13476",
+  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan PAUD": "13477",
+  "Tersusunnya kompetensi pendidik dan tenaga kependidikan": "12365",
+  "Terlaksananya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan": "12366",
+  "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan": "12367",
+  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan": "12368",
+  "Tersedianya data Persentase kompetensi pendidik dan tenaga kependidikan Pendidikan Dasar": "10970",
+  "Tersedianya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan Pendidikan Dasar": "10994",
+  "Tersedianya data kualifikasi dan kompetensi, dan peningkatan kesejahteraan dan pemindahan guru dan tenaga kependidikan": "11008"
 }
 
 let kuant = {
@@ -430,7 +430,7 @@ function ubahBulan(parm) {
 }
 
 function kinerjahack() {
-  $('#loadingModal').modal('show')
+
 
   var aktifitas = 2 //aktifitas SKP
   var skp = 3 //SKP tahunan
@@ -525,13 +525,16 @@ function kinerjahack() {
     }
   })
 
-  $('#loadingModal').modal('hide')
-
 }
 
 function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan) {
-  
-  let urlTambah = "http://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+  $('#loadingModal').modal('show')
+
+  let urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+
+  if (location.protocol == 'http:') {
+    urlTambah = "http://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+  }
 
   let payloadTambah = {
     "id_opmt_aktifitas_30": "0",
@@ -573,13 +576,17 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
     }).then(resubah => {
       return resubah.text()
     }).then(respubah => {
-      console.log(respubah)
+      $('#loadingModal').modal('hide')
     })
   })
 }
 
 function tambahbaru() {
   let urlTambah = "http://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+
+  if (location.protocol == 'https:') {
+    urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+  }
 
   fetch("https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec")
     .then(res => {
