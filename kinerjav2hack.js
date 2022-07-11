@@ -45,7 +45,11 @@ let klasifikasi = {
   "terterimanya, tercatatnya , tersimpannya dan terdistribusinya sarana dan prasarana SKPD": "11512",
   "Tersedianya sarana dan prasarana kantor": "11557",
   "Terbuatnya laporan hasil pelaksanaan tugas dan memberi saran serta pertimbangan kepada pimpinan sesuai tugas dan fungsi": "11570",
-  "Terlaksanya tugas kedinasan lain yang diberikan oleh pimpinan": "11576"
+  "Terlaksanya tugas kedinasan lain yang diberikan oleh pimpinan": "11576",
+  "Tersedianya laporan hasil pemeliharaan barang inventaris": "9700",
+  "Terbuatnya daftar prioritas kebutuhan barang ditahun berjalan": "10045",
+  "Terdaftarnya dan tercatatnya hasil pengadaan dalam Kartu Inventaris Barang (KIB), Kartu Inventaris Ruang (KIR) pada Buku inventaris": "10051",
+  "Laporan bulanan pengelolaan barang secara priodik yang disampaikan kepada atasan dan diarsipkan dengan baik": "11315"
 }
 
 let kuant = {
