@@ -407,7 +407,7 @@ function ubahBulan(parm) {
     case 'Apr':
       return '04'
       break;
-    case 'Mei':
+    case 'May':
       return '05'
       break;
     case 'Jun':
