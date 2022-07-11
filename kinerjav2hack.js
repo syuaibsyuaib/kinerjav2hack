@@ -418,7 +418,9 @@ function ubahBulan(parm) {
   }
 }
 
-async function kinerjahack() {
+function kinerjahack() {
+  $('#loadingModal').modal('show')
+
   var aktifitas = 2 //aktifitas SKP
   var skp = 3 //SKP tahunan
   var tgl = 1 //tanggal
@@ -440,7 +442,7 @@ async function kinerjahack() {
     "id kegiatan": ""
   }
 
-  await $('#table tbody td').each(async function (e, h) {
+  $('#table tbody td').each(function (e, h) {
     var tglFull, akt, qty, qtydd, mulai, selesai, klas, idkegiatan
 
     if (e == aktifitas) {
@@ -506,7 +508,7 @@ async function kinerjahack() {
 
     if (e == i) {
       // if (tglFull != undefined && akt != undefined && qty != undefined && qtydd != undefined && mulai != undefined && selesai != undefined && klas != undefined ) {
-      await kirim(objKirim["tanggal"], objKirim["aktifitas"], objKirim["qty"], objKirim["qtydd"], objKirim["jam mulai"], objKirim["jam selesai"], objKirim["skp"], objKirim["id kegiatan"])
+      kirim(objKirim["tanggal"], objKirim["aktifitas"], objKirim["qty"], objKirim["qtydd"], objKirim["jam mulai"], objKirim["jam selesai"], objKirim["skp"], objKirim["id kegiatan"])
       // }
       i += 11
     }
@@ -517,7 +519,7 @@ async function kinerjahack() {
 }
 
 function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan) {
-  $('#loadingModal').modal('show')
+  
   let urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
 
   let payloadTambah = {
@@ -585,5 +587,6 @@ function tambahbaru() {
           console.log(resp)
         })
       });
+      alert("Berhasil...")
     })
 }
