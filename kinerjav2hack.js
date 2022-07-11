@@ -1,5 +1,5 @@
 /*$('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">TAMBAH</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
-$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.4/kinerjav2hack.js"></script>')*/
+$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.5b/kinerjav2hack.js"></script>')*/
 
 var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" data-backdrop="static">
   <div class="modal-dialog" style="height: 95%;" role="document">
