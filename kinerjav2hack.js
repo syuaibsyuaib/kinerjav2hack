@@ -18,7 +18,9 @@ let klasifikasi = {
   "Tersedianya data hasil kualifikasi dan kompetensi guru dan tenaga kependidikan PAUD": "13443",
   "Tersedianya data rasio guru dan murid sekolah Pendidikan Dasar": "14321",
   "Tersedianya data rasio ketersediaan sekolah /penduduk usia sekolah pendidikan dasar": "14322",
-  "Tersedianya data pengelolaan Pendidikan Sekolah Dasar": "14324"
+  "Tersedianya data pengelolaan Pendidikan Sekolah Dasar": "14324",
+  "Mengelola Data Peningkatan Kompetensi Pendidik dan Tenaga Kependidikan":"13492",
+  "Tersedianya data kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD":"13493"
 }
 
 let kuant = {
