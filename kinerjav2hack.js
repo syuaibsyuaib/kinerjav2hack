@@ -24,7 +24,11 @@ let klasifikasi = {
   "Tersusunnya data kompetensi pendidik dan tenaga kependidikan PAUD":"13473",
   "Tersusunnya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan PAUD":"13475",
   "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD":"13476",
-  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan PAUD":"13477"
+  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan PAUD":"13477",
+  "Tersusunnya kompetensi pendidik dan tenaga kependidikan":"12365",
+  "Terlaksananya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan":"12366",
+  "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan":"12367",
+  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan":"12368"
 }
 
 let kuant = {
