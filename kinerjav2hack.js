@@ -447,14 +447,14 @@ async function kinerjahack() {
       akt = $(h).text()
       aktifitas += 11
       objKirim["aktifitas"] = akt
-      // console.log(akt)
+      console.log(akt)
     }
     if (e == skp) {
       // console.log($(h).text())
       klas = klasifikasi[$(h).text()]
       skp += 11
       objKirim["skp"] = klas
-      // console.log(klas)
+      console.log(klas)
     }
     if (e == tgl) {
       var tglMentah = $(h).text()
