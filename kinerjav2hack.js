@@ -31,7 +31,21 @@ let klasifikasi = {
   "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan": "12368",
   "Tersedianya data Persentase kompetensi pendidik dan tenaga kependidikan Pendidikan Dasar": "10970",
   "Tersedianya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan Pendidikan Dasar": "10994",
-  "Tersedianya data kualifikasi dan kompetensi, dan peningkatan kesejahteraan dan pemindahan guru dan tenaga kependidikan": "11008"
+  "Tersedianya data kualifikasi dan kompetensi, dan peningkatan kesejahteraan dan pemindahan guru dan tenaga kependidikan": "11008",
+  "Menginventarisir aset kantor, baik yang bergerak maupun yang tidak bergerak": "7859",
+  "Menyusun rencana Kebutuhan dan Melaksanakan Inventarisasi, pengadaan, penyimpanan, pendistribusian, pengelolaan, pemeliharaan, penghapusan atas barang inventaris dan aset kantor, baik yang bergerak maupun tidak bergerak": "11390",
+  "Melaksanakan dan mengkoordinasikan urusan rumah tangga dinas": "11399",
+  "Menerima, mencatat, menyimpan dan mendistribusikan sarana dan prasarana SIKPD": "11433",
+  "Mempersiapkan sarana dan prasarana kantor": "11434",
+  "Memberikan laporan hasil pelaksanaan tugas dan memberi saran serta pertimbangan kepada pimpinan sesuai tugas dan fungsi": "11435",
+  "Melaksanakan tugas kedinasan lain yang diberikan oleh pimpinan": "11438",
+  "Meningkatkan efektifitas dan efesiensi pelayanan kinerja SDM": "11439",
+  "Tersusunnya rencana kebutuhan dan melaksanakan inventarisasi, pengadaan, penyimpanan, pendistribusian, pengelolaan, pemeliharaan, dan penghapusan atas barang inventaris dan aset": "11488",
+  "Terlaksananya dan terkoordinakannya urusan rumah tangga Dinas": "11494",
+  "terterimanya, tercatatnya , tersimpannya dan terdistribusinya sarana dan prasarana SKPD": "11512",
+  "Tersedianya sarana dan prasarana kantor": "11557",
+  "Terbuatnya laporan hasil pelaksanaan tugas dan memberi saran serta pertimbangan kepada pimpinan sesuai tugas dan fungsi": "11570",
+  "Terlaksanya tugas kedinasan lain yang diberikan oleh pimpinan": "11576"
 }
 
 let kuant = {
