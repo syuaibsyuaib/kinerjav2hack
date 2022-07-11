@@ -1,5 +1,5 @@
 /*$('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">TAMBAH</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
-$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.6a/kinerjav2hack.js"></script>')*/
+$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.6b/kinerjav2hack.js"></script>')*/
 
 var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" data-backdrop="static">
   <div class="modal-dialog" style="height: 95%;" role="document">
@@ -28,7 +28,10 @@ let klasifikasi = {
   "Tersusunnya kompetensi pendidik dan tenaga kependidikan":"12365",
   "Terlaksananya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan":"12366",
   "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan":"12367",
-  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan":"12368"
+  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan":"12368",
+  "Tersedianya data Persentase kompetensi pendidik dan tenaga kependidikan Pendidikan Dasar":"10970",
+  "Tersedianya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan Pendidikan Dasar":"10994",
+  "Tersedianya data kualifikasi dan kompetensi, dan peningkatan kesejahteraan dan pemindahan guru dan tenaga kependidikan":"11008"
 }
 
 let kuant = {
