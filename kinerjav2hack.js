@@ -667,7 +667,7 @@ function tambahbaru() {
       hasil.forEach(bkn => {
         fetch(urlTambah, {
           method: 'POST',
-          body: bkn,
+          body: JSON.stringify(bkn),
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).then(res => {
           return res.text()
