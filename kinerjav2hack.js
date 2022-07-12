@@ -563,7 +563,7 @@ function kinerjahack() {
 
 }
 
-function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan, parmThnAktif, parmBlnAktif, parmBanyakRow, resetRow) {
+function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan, parmThnAktif, parmBlnAktif, parmBanyakRow, parmResetRow) {
 
   let urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
 
@@ -613,9 +613,9 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
     }).then(resubah => {
       console.log(resubah.status)
       if (resubah.status == '200') {
-        resetRow++
-        console.log(resetRow)
-        if (resetRow == banyakRow) {
+        parmResetRow++
+        console.log(parmResetRow)
+        if (parmResetRow == parmBanyakRow) {
           $('#loadingModal').modal('hide')
         }
       }
