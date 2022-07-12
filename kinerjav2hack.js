@@ -50,15 +50,18 @@ let klasifikasi = {
   "Terbuatnya daftar prioritas kebutuhan barang ditahun berjalan": "10045",
   "Terdaftarnya dan tercatatnya hasil pengadaan dalam Kartu Inventaris Barang (KIB), Kartu Inventaris Ruang (KIR) pada Buku inventaris": "10051",
   "Laporan bulanan pengelolaan barang secara priodik yang disampaikan kepada atasan dan diarsipkan dengan baik": "11315",
-    "Melaksanakan Penataan dan Pengelolaan Administrasi Umum Perkantoran dan Kepegawaian\n": "13100",
-    "Meningkatnya efektifitas dan efisiensi pelayanan kinerja SDM": "13103",
-    "Laporan Akuntabilitas Kinerja Instansi Pemerintah (LAKIP)": "13107",
-    "Tersusunya dan terlaksananya pemetaan dan pengelolaan administrasi umum dan perkantoran": "13119",
-    "Terkordinasnya dan terkelolanya urusan ketatausahaan dan kearsipan dinas": "13123",
-    "Terlaksananya urusan dministrasi dan pembinaan pegawai": "13129",
-    "Tersusunnya Laporan hasil pelaksanaan tugas dan memberi saran dan pertimbangan kepada pimpnan sesuai tugas dan fungsi": "13138",
-    "Terlaksananya Laporan Hasil Pelaksnaaan Tugas dan Member Saran dan Petimbangan kepada Pimpinan sesuai fungsi dan tugas": "13142",
-    "Terlaksananya Tugas kedinasan lain yang diberikan oleh pimpinan": "13144"
+  "Melaksanakan Penataan dan Pengelolaan Administrasi Umum Perkantoran dan Kepegawaian": "13100",
+  "Meningkatnya efektifitas dan efisiensi pelayanan kinerja SDM": "13103",
+  "Laporan Akuntabilitas Kinerja Instansi Pemerintah (LAKIP)": "13107",
+  "Tersusunya dan terlaksananya pemetaan dan pengelolaan administrasi umum dan perkantoran": "13119",
+  "Terkordinasnya dan terkelolanya urusan ketatausahaan dan kearsipan dinas": "13123",
+  "Terlaksananya urusan dministrasi dan pembinaan pegawai": "13129",
+  "Tersusunnya Laporan hasil pelaksanaan tugas dan memberi saran dan pertimbangan kepada pimpnan sesuai tugas dan fungsi": "13138",
+  "Terlaksananya Laporan Hasil Pelaksnaaan Tugas dan Member Saran dan Petimbangan kepada Pimpinan sesuai fungsi dan tugas": "13142",
+  "Terlaksananya Tugas kedinasan lain yang diberikan oleh pimpinan": "13144",
+  "Tersedianya data kompetensi pendidik dan tenaga kependidikan": "13245",
+  "Terkelolanya data base pendidikan": "13250",
+  "Terkelolanya data koleksi yang dibutuhkan atasan": "13277"
 }
 
 let kuant = {
