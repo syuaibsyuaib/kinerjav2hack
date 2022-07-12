@@ -460,8 +460,6 @@ function ubahBulan(parm) {
 }
 
 function kinerjahack() {
-
-
   var aktifitas = 2 //aktifitas SKP
   var skp = 3 //SKP tahunan
   var tgl = 1 //tanggal
@@ -471,6 +469,10 @@ function kinerjahack() {
   var proses = 7 //proses
   var kegiatan = 9
   var i = 10
+  var banyakRow = $('#table tbody tr').length
+  var resetRow = 1
+  var blnAktif = $('#bln_skp').val()
+  var thnAktif = $('#thn_skp').val()
 
   var objKirim = {
     "tanggal": "",
@@ -492,6 +494,7 @@ function kinerjahack() {
       objKirim["aktifitas"] = akt
       console.log(akt)
     }
+
     if (e == skp) {
       // console.log($(h).text())
       klas = klasifikasi[$(h).text()]
@@ -513,6 +516,7 @@ function kinerjahack() {
       objKirim["tanggal"] = tglFull
       // console.log(tglFull)
     }
+
     if (e == kuantitas) {
       //1 Data
       qtydd = kuant[($(h).text()).match(/[A-Za-z]+/)[0]]
@@ -533,6 +537,7 @@ function kinerjahack() {
       // console.log(mulai)
       objKirim["jam mulai"] = mulai
     }
+
     if (e == jamSelesai) {
       var jamS = $(h).text()
       // selesai = jamS.substring(0, 5)
@@ -541,6 +546,7 @@ function kinerjahack() {
       // console.log(selesai)
       objKirim["jam selesai"] = selesai
     }
+
     if (e == kegiatan) {
       idkegiatan = ($($(h).children()[0]).attr('onclick')).match(/\((\d+)/)[1]
       kegiatan += 11
@@ -549,7 +555,7 @@ function kinerjahack() {
 
     if (e == i) {
       // if (tglFull != undefined && akt != undefined && qty != undefined && qtydd != undefined && mulai != undefined && selesai != undefined && klas != undefined ) {
-      kirim(objKirim["tanggal"], objKirim["aktifitas"], objKirim["qty"], objKirim["qtydd"], objKirim["jam mulai"], objKirim["jam selesai"], objKirim["skp"], objKirim["id kegiatan"])
+      kirim(objKirim["tanggal"], objKirim["aktifitas"], objKirim["qty"], objKirim["qtydd"], objKirim["jam mulai"], objKirim["jam selesai"], objKirim["skp"], objKirim["id kegiatan"], thnAktif, blnAktif, banyakRow, resetRow)
       // }
       i += 11
     }
@@ -557,10 +563,13 @@ function kinerjahack() {
 
 }
 
-function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan) {
-  $('#loadingModal').modal('show')
+function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan, parmThnAktif, parmBlnAktif, parmBanyakRow, resetRow) {
 
   let urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+
+  let cariSkp = "https://kinerjav2.pareparekota.go.id/c_aktifitas/cari_skp_30"
+  let payloadCariSkp = "bln=3&thn=2022"
+
 
   if (location.protocol == 'http:') {
     urlTambah = "http://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
@@ -589,7 +598,7 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
   }
 
   // console.log(payload)
-
+  $('#loadingModal').modal('show')
   fetch(urlTambah, {
     method: 'POST',
     body: JSON.stringify(payloadTambah),
@@ -597,8 +606,6 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
   }).then(res => {
     return res.text()
   }).then(resp => {
-    console.log(resp)
-  }).then(resp1 => {
     fetch(urlTambah, {
       method: 'POST',
       body: JSON.stringify(payloadUbah),
@@ -606,8 +613,21 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
     }).then(resubah => {
       return resubah.text()
     }).then(respubah => {
+      console.log(respubah.status)
+      if (respubah.status == '200') {
+        resetRow++
+        console.log(resetRow)
+        if (resetRow == banyakRow) {
+          $('#loadingModal').modal('hide')
+        }
+      }
+    }).catch(err => {
+      alert(err)
       $('#loadingModal').modal('hide')
     })
+  }).catch(errr => {
+    alert(errr)
+    $('#loadingModal').modal('hide')
   })
 }
 
