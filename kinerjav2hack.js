@@ -9,11 +9,21 @@ var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dia
 </div>
 </div>`
 
-$('body').prepend(modalLoading)
+
 
 let nip = ($('.info p').text()).match(/\d+/)[0]
+let gs = 'https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec'
 
-let nipStafSekolah = ['196506151986032015', '196907081990102001', '197511092014091001']
+let nipStafSekolah
+
+fetch(`${gs}?mode=ambilNip`)
+  .then(res => {
+    return res.json()
+  })
+  .then(rep => {
+    $('body').prepend(modalLoading)
+    nipStafSekolah = rep
+  })
 
 let klasifikasi = {
   "Tersedianya data hasil analisa kebutuhan dan pengendalian formasi guru dan tenaga kependidikan PAUD": "13418",
@@ -658,7 +668,7 @@ function tambahbaru() {
     urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
   }
 
-  fetch(`https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec?nip=${nip}`)
+  fetch(`${gs}?nip=${nip}`)
     .then(res => {
       return res.text()
     })
