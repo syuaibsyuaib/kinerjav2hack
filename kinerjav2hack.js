@@ -556,6 +556,7 @@ function kinerjahack() {
     if (e == i) {
       // if (tglFull != undefined && akt != undefined && qty != undefined && qtydd != undefined && mulai != undefined && selesai != undefined && klas != undefined ) {
       kirim(objKirim["tanggal"], objKirim["aktifitas"], objKirim["qty"], objKirim["qtydd"], objKirim["jam mulai"], objKirim["jam selesai"], objKirim["skp"], objKirim["id kegiatan"], thnAktif, blnAktif, banyakRow, resetRow)
+      resetRow++
       // }
       i += 11
     }
@@ -613,7 +614,6 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
     }).then(resubah => {
       console.log(resubah.status)
       if (resubah.status == '200') {
-        parmResetRow++
         console.log(parmResetRow)
         if (parmResetRow == parmBanyakRow) {
           $('#loadingModal').modal('hide')
