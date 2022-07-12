@@ -1,5 +1,5 @@
 $('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
-//$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.6b/kinerjav2hack.js"></script>')*/
+//$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.8a/kinerjav2hack.js"></script>')*/
 
 var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" data-backdrop="static">
   <div class="modal-dialog" style="height: 95%;" role="document">
@@ -658,7 +658,7 @@ function tambahbaru() {
     urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
   }
 
-  fetch(`https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec&nip=${nip}`)
+  fetch(`https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec?nip=${nip}`)
     .then(res => {
       return res.text()
     })
