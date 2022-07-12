@@ -14,69 +14,17 @@ var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dia
 let nip = ($('.info p').text()).match(/\d+/)[0]
 let gs = 'https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec'
 
-let nipStafSekolah
+let nipStafSekolah, klasifikasi
 
 fetch(`${gs}?mode=ambilNip`)
   .then(res => {
     return res.json()
   })
   .then(rep => {
+    nipStafSekolah = rep[0]
+    klasifikasi = rep[1]
     $('body').prepend(modalLoading)
-    nipStafSekolah = rep
   })
-
-let klasifikasi = {
-  "Tersedianya data hasil analisa kebutuhan dan pengendalian formasi guru dan tenaga kependidikan PAUD": "13418",
-  "Tersedianya data hasil analisa pengembangan karir guru dan tenaga kependidikan PAUD": "13420",
-  "Tersedianya data hasil analisa pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD": "13442",
-  "Tersedianya data hasil kualifikasi dan kompetensi guru dan tenaga kependidikan PAUD": "13443",
-  "Tersedianya data rasio guru dan murid sekolah Pendidikan Dasar": "14321",
-  "Tersedianya data rasio ketersediaan sekolah /penduduk usia sekolah pendidikan dasar": "14322",
-  "Tersedianya data pengelolaan Pendidikan Sekolah Dasar": "14324",
-  "Mengelola Data Peningkatan Kompetensi Pendidik dan Tenaga Kependidikan": "13492",
-  "Tersedianya data kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD": "13493",
-  "Tersusunnya data kompetensi pendidik dan tenaga kependidikan PAUD": "13473",
-  "Tersusunnya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan PAUD": "13475",
-  "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan PAUD": "13476",
-  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan PAUD": "13477",
-  "Tersusunnya kompetensi pendidik dan tenaga kependidikan": "12365",
-  "Terlaksananya Indeks kebutuhan dan pengendalian formasi, pengembangan karir guru dan tenaga kependidikan": "12366",
-  "Tersusunnya kualifikasi dan kompetensi, pemindahan dan peningkatan kesejahteraan guru dan tenaga kependidikan": "12367",
-  "Terlaksananya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan": "12368",
-  "Tersedianya data Persentase kompetensi pendidik dan tenaga kependidikan Pendidikan Dasar": "10970",
-  "Tersedianya supervisi dan evaluasi kinerja Guru dan tenaga kependidikan Pendidikan Dasar": "10994",
-  "Tersedianya data kualifikasi dan kompetensi, dan peningkatan kesejahteraan dan pemindahan guru dan tenaga kependidikan": "11008",
-  "Menginventarisir aset kantor, baik yang bergerak maupun yang tidak bergerak": "7859",
-  "Menyusun rencana Kebutuhan dan Melaksanakan Inventarisasi, pengadaan, penyimpanan, pendistribusian, pengelolaan, pemeliharaan, penghapusan atas barang inventaris dan aset kantor, baik yang bergerak maupun tidak bergerak": "11390",
-  "Melaksanakan dan mengkoordinasikan urusan rumah tangga dinas": "11399",
-  "Menerima, mencatat, menyimpan dan mendistribusikan sarana dan prasarana SIKPD": "11433",
-  "Mempersiapkan sarana dan prasarana kantor": "11434",
-  "Memberikan laporan hasil pelaksanaan tugas dan memberi saran serta pertimbangan kepada pimpinan sesuai tugas dan fungsi": "11435",
-  "Melaksanakan tugas kedinasan lain yang diberikan oleh pimpinan": "11438",
-  "Meningkatkan efektifitas dan efesiensi pelayanan kinerja SDM": "11439",
-  "Tersusunnya rencana kebutuhan dan melaksanakan inventarisasi, pengadaan, penyimpanan, pendistribusian, pengelolaan, pemeliharaan, dan penghapusan atas barang inventaris dan aset": "11488",
-  "Terlaksananya dan terkoordinakannya urusan rumah tangga Dinas": "11494",
-  "terterimanya, tercatatnya , tersimpannya dan terdistribusinya sarana dan prasarana SKPD": "11512",
-  "Tersedianya sarana dan prasarana kantor": "11557",
-  "Terbuatnya laporan hasil pelaksanaan tugas dan memberi saran serta pertimbangan kepada pimpinan sesuai tugas dan fungsi": "11570",
-  "Terlaksanya tugas kedinasan lain yang diberikan oleh pimpinan": "11576",
-  "Tersedianya laporan hasil pemeliharaan barang inventaris": "9700",
-  "Terbuatnya daftar prioritas kebutuhan barang ditahun berjalan": "10045",
-  "Terdaftarnya dan tercatatnya hasil pengadaan dalam Kartu Inventaris Barang (KIB), Kartu Inventaris Ruang (KIR) pada Buku inventaris": "10051",
-  "Laporan bulanan pengelolaan barang secara priodik yang disampaikan kepada atasan dan diarsipkan dengan baik": "11315",
-  "Melaksanakan Penataan dan Pengelolaan Administrasi Umum Perkantoran dan Kepegawaian": "13100",
-  "Meningkatnya efektifitas dan efisiensi pelayanan kinerja SDM": "13103",
-  "Laporan Akuntabilitas Kinerja Instansi Pemerintah (LAKIP)": "13107",
-  "Tersusunya dan terlaksananya pemetaan dan pengelolaan administrasi umum dan perkantoran": "13119",
-  "Terkordinasnya dan terkelolanya urusan ketatausahaan dan kearsipan dinas": "13123",
-  "Terlaksananya urusan dministrasi dan pembinaan pegawai": "13129",
-  "Tersusunnya Laporan hasil pelaksanaan tugas dan memberi saran dan pertimbangan kepada pimpnan sesuai tugas dan fungsi": "13138",
-  "Terlaksananya Laporan Hasil Pelaksnaaan Tugas dan Member Saran dan Petimbangan kepada Pimpinan sesuai fungsi dan tugas": "13142",
-  "Terlaksananya Tugas kedinasan lain yang diberikan oleh pimpinan": "13144",
-  "Tersedianya data kompetensi pendidik dan tenaga kependidikan": "13245",
-  "Terkelolanya data base pendidikan": "13250",
-  "Terkelolanya data koleksi yang dibutuhkan atasan": "13277"
-}
 
 let kuant = {
   "Proses Draft": "17",
