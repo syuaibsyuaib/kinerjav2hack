@@ -49,7 +49,12 @@ let klasifikasi = {
   "Tersedianya laporan hasil pemeliharaan barang inventaris": "9700",
   "Terbuatnya daftar prioritas kebutuhan barang ditahun berjalan": "10045",
   "Terdaftarnya dan tercatatnya hasil pengadaan dalam Kartu Inventaris Barang (KIB), Kartu Inventaris Ruang (KIR) pada Buku inventaris": "10051",
-  "Laporan bulanan pengelolaan barang secara priodik yang disampaikan kepada atasan dan diarsipkan dengan baik": "11315"
+  "Laporan bulanan pengelolaan barang secara priodik yang disampaikan kepada atasan dan diarsipkan dengan baik": "11315",
+    "persentase angka partisispasi kasar (APK) Pendidikan nonforl/kesetaraan": "7261",
+    "MeningkatnyaPengelolaan Pendidikan nonformal/kesetaraan": "7278",
+    "Persentase Penyelenggaraan proses belajar nonfornal/kesetaraan": "7283",
+    "Pembinaan Kelembagaan dan manajemen sekolah nonformal/kesetaraan": "7289",
+    "Pengelola sarana dan prasarana pendidikan nonformal": "7316"
 }
 
 let kuant = {
