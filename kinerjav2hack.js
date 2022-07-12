@@ -492,7 +492,7 @@ function kinerjahack() {
       akt = $(h).text()
       aktifitas += 11
       objKirim["aktifitas"] = akt
-      console.log(akt)
+      // console.log(akt)
     }
 
     if (e == skp) {
@@ -500,7 +500,7 @@ function kinerjahack() {
       klas = klasifikasi[$(h).text()]
       skp += 11
       objKirim["skp"] = klas
-      console.log(klas)
+      // console.log(klas)
     }
     if (e == tgl) {
       var tglMentah = $(h).text()
@@ -611,16 +611,17 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
       body: JSON.stringify(payloadUbah),
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     }).then(resubah => {
-      return resubah.text()
-    }).then(respubah => {
-      console.log(respubah.status)
-      if (respubah.status == '200') {
+      console.log(resubah.status)
+      if (resubah.status == '200') {
         resetRow++
         console.log(resetRow)
         if (resetRow == banyakRow) {
           $('#loadingModal').modal('hide')
         }
       }
+      return resubah.text()
+    }).then(respubah => {
+      console.log(respubah)
     }).catch(err => {
       alert(err)
       $('#loadingModal').modal('hide')
