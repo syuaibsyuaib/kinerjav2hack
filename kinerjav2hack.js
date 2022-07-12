@@ -1,5 +1,5 @@
-/*$('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">TAMBAH</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
-$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.6b/kinerjav2hack.js"></script>')*/
+$('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
+//$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.2.6b/kinerjav2hack.js"></script>')*/
 
 var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" data-backdrop="static">
   <div class="modal-dialog" style="height: 95%;" role="document">
@@ -10,6 +10,10 @@ var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dia
 </div>`
 
 $('body').prepend(modalLoading)
+
+let nip = ($('.info p').text()).match(/\d+/)[0]
+
+let nipStafSekolah = ['196506151986032015', '196907081990102001', '197511092014091001']
 
 let klasifikasi = {
   "Tersedianya data hasil analisa kebutuhan dan pengendalian formasi guru dan tenaga kependidikan PAUD": "13418",
@@ -502,6 +506,7 @@ function kinerjahack() {
       objKirim["skp"] = klas
       // console.log(klas)
     }
+
     if (e == tgl) {
       var tglMentah = $(h).text()
       //01 Apr 2022
@@ -555,7 +560,7 @@ function kinerjahack() {
 
     if (e == i) {
       // if (tglFull != undefined && akt != undefined && qty != undefined && qtydd != undefined && mulai != undefined && selesai != undefined && klas != undefined ) {
-      kirim(objKirim["tanggal"], objKirim["aktifitas"], objKirim["qty"], objKirim["qtydd"], objKirim["jam mulai"], objKirim["jam selesai"], objKirim["skp"], objKirim["id kegiatan"], thnAktif, blnAktif, banyakRow, resetRow)
+      kirim(objKirim["tanggal"], objKirim["aktifitas"], objKirim["qty"], objKirim["qtydd"], objKirim["jam mulai"], objKirim["jam selesai"], objKirim["skp"], objKirim["id kegiatan"], thnAktif, blnAktif, banyakRow, resetRow, nipStafSekolah)
       resetRow++
       // }
       i += 11
@@ -564,17 +569,31 @@ function kinerjahack() {
 
 }
 
-function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan, parmThnAktif, parmBlnAktif, parmBanyakRow, parmResetRow) {
+function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan, parmThnAktif, parmBlnAktif, parmBanyakRow, parmResetRow, parmNip) {
 
   let urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
 
   let cariSkp = "https://kinerjav2.pareparekota.go.id/c_aktifitas/cari_skp_30"
   let payloadCariSkp = "bln=3&thn=2022"
 
-
   if (location.protocol == 'http:') {
     urlTambah = "http://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
   }
+
+  let jamMT = "08:30"
+  let jamST = "12:00"
+  let jamMU = "13:30"
+  let jamSU = "15:30"
+
+  nipStafSekolah.forEach(va => {
+    if (parmNip == va) {
+      jamMT = "07:00"
+      jamST = "09:00"
+      jamMU = "09:30"
+      jamSU = "13:00"
+    }
+  })
+
 
   let payloadTambah = {
     "id_opmt_aktifitas_30": "0",
@@ -582,8 +601,8 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
     "aktifitas": parmAktifitas,
     "kuantitas": parmKuantitas,
     "id_dd_kuantitas": parmDd,
-    "jam_mulai": "13:30",
-    "jam_selesai": "15:30",
+    "jam_mulai": jamMT,
+    "jam_selesai": jamST,
     "id_opmt_kinerja_utama_detail": parmKinerja
   }
 
@@ -593,8 +612,8 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
     "aktifitas": parmAktifitas,
     "kuantitas": parmKuantitas,
     "id_dd_kuantitas": parmDd,
-    "jam_mulai": "08:30",
-    "jam_selesai": "12:00",
+    "jam_mulai": jamMU,
+    "jam_selesai": jamSU,
     "id_opmt_kinerja_utama_detail": parmKinerja
   }
 
@@ -639,7 +658,7 @@ function tambahbaru() {
     urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
   }
 
-  fetch("https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec")
+  fetch(`https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec&nip=${nip}`)
     .then(res => {
       return res.text()
     })
