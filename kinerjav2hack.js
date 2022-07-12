@@ -7,6 +7,7 @@ $("#id_opmt_kinerja_utama_detail option").each(function(e,h){
   isi[$(h).text()] = $(h).val()
 })
 
+https://jsongrid.com/json-grid
 */
 
 $('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
