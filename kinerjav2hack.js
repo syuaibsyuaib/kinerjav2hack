@@ -529,7 +529,7 @@ function kinerjahack() {
 
     if (e == i) {
       // if (tglFull != undefined && akt != undefined && qty != undefined && qtydd != undefined && mulai != undefined && selesai != undefined && klas != undefined ) {
-      kirim(objKirim["tanggal"], objKirim["aktifitas"], objKirim["qty"], objKirim["qtydd"], objKirim["jam mulai"], objKirim["jam selesai"], objKirim["skp"], objKirim["id kegiatan"], thnAktif, blnAktif, banyakRow, resetRow, nipStafSekolah)
+      kirim(objKirim["tanggal"], objKirim["aktifitas"], objKirim["qty"], objKirim["qtydd"], objKirim["jam mulai"], objKirim["jam selesai"], objKirim["skp"], objKirim["id kegiatan"], thnAktif, blnAktif, banyakRow, resetRow, nip)
       resetRow++
       // }
       i += 11
