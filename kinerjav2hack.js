@@ -626,7 +626,7 @@ function tambahbaru() {
   if (location.protocol == 'https:') {
     urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
   }
-
+  $('#loadingModal').modal('show')
   fetch(`${gs}?nip=${nip}`)
     .then(res => {
       return res.text()
@@ -641,9 +641,16 @@ function tambahbaru() {
         }).then(res => {
           return res.text()
         }).then(resp => {
-          console.log(resp)
+          $('#loadingModal').modal('hide')
+        })
+        .catch(errr =>{
+          $('#loadingModal').modal('show')
+          alert(errr)
         })
       });
       alert("Berhasil...")
+    }).catch(err => {
+      $('#loadingModal').modal('hide')
+      alert(err)
     })
 }
