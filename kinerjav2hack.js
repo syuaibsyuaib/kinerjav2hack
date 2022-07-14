@@ -7,6 +7,8 @@ $("#id_opmt_kinerja_utama_detail option").each(function(e,h){
   isi[$(h).text()] = $(h).val()
 })
 
+console.log(isi)
+
 https://jsongrid.com/json-grid
 */
 
@@ -34,6 +36,11 @@ fetch(`${gs}?mode=ambilNip`)
     klasifikasi = rep[1]
     $('body').prepend(modalLoading)
     $('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
+    $('#bln_skp').change(function () {
+      cari_skp()
+    })
+
+    $('#tengah table:eq(0) td').eq(4).remove()
   })
 
 let kuant = {
@@ -643,9 +650,9 @@ function tambahbaru() {
         }).then(resp => {
           $('#loadingModal').modal('hide')
         }).catch(errr => {
-            $('#loadingModal').modal('show')
-            alert(errr)
-          })
+          $('#loadingModal').modal('show')
+          alert(errr)
+        })
       });
       alert("Berhasil...")
       cari_skp()
