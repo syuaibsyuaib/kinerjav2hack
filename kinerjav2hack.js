@@ -1,4 +1,4 @@
-//$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.0.1b/kinerjav2hack.js"></script>')
+//$('body').append('<script src="https://cdn.jsdelivr.net/gh/syuaibsyuaib/kinerjav2hack@v1.0.1/kinerjav2hack.js"></script>')
 
 /*
 
