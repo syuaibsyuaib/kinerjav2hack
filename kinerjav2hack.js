@@ -609,6 +609,7 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
       return resubah.text()
     }).then(respubah => {
       console.log(respubah)
+      cari_skp()
     }).catch(err => {
       alert(err)
       $('#loadingModal').modal('hide')
@@ -641,37 +642,15 @@ function tambahbaru() {
           return res.text()
         }).then(resp => {
           $('#loadingModal').modal('hide')
-        })
-          .catch(errr => {
+        }).catch(errr => {
             $('#loadingModal').modal('show')
             alert(errr)
           })
       });
       alert("Berhasil...")
+      cari_skp()
     }).catch(err => {
       $('#loadingModal').modal('hide')
       alert(err)
     })
-}
-
-function CariSkp(bulan, tahun) {
-  let urlCariSkp = 'https://kinerjav2.pareparekota.go.id/c_aktifitas/cari_skp_30'
-
-  let payloadCariSkp = {
-    bln: bulan,
-    thn: tahun
-  }
-
-  fetch(urlCariSkp, {
-    method: 'post',
-    body: JSON.stringify(payloadCariSkp),
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-  }).then(res=>{
-    return res.text()
-  }).then(resp=>{
-    console.log('%cberhasil', 'color:green')
-  }).catch(err => {
-    console.log(`%c${err}`, 'color:red')
-    alert(err)
-  })
 }
