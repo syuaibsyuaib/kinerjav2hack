@@ -9,6 +9,13 @@ $("#id_opmt_kinerja_utama_detail option").each(function(e,h){
 
 console.log(isi)
 
+backup:
+var tampung = []
+for(let i = 1; i < $('#table td').length;i += 11){
+    tampung.push($('#table td').eq(i).text())
+}
+console.log(tampung)
+
 https://jsongrid.com/json-grid
 */
 
