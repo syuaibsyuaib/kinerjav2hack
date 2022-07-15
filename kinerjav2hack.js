@@ -12,6 +12,7 @@ console.log(isi)
 https://jsongrid.com/json-grid
 */
 
+
 var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" data-backdrop="static">
   <div class="modal-dialog" style="height: 95%;" role="document">
   <div class="modal-content" style="top:30%;width: fit-content;border: none;box-shadow: none;background-color: transparent;margin: auto;">
@@ -24,12 +25,46 @@ var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dia
 
 let nip = ($('.info p').text()).match(/\d+/)[0]
 let gs = 'https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec'
-
 let nipStafSekolah, klasifikasi
+let isi2 = {}, isi3 = {}
+
+let simpanKlasifikasi = new Promise( (resolve, rejecet)=> {
+  fetch('https://kinerjav2.pareparekota.go.id/c_aktifitas/tambah_skp_30')
+    .then(res => {
+      return res.text()
+    })
+    .then(resp => {
+      $($($(resp)[0]).find('#id_opmt_kinerja_utama_detail option')).each(function (e, h) {
+        isi2[$(h).text()] = $(h).val()
+      })
+    })
+    .then(respp => {
+      for (let i = 1; i < Object.keys(isi2).length; i++) {
+        isi3[(Object.keys(isi2)[i]).trim()] = isi2[Object.keys(isi2)[i]]
+      }
+    })
+    .then(resppp => {
+      isi3["nip"] = nip
+      fetch(gs, {
+        method: 'POST',
+        body: JSON.stringify(isi3)
+      })
+        .then(res => {
+          return res.text()
+        })
+        .then(resp => {
+          resolve(resp)
+        })
+    })
+})
+
 
 fetch(`${gs}?mode=ambilNip`)
   .then(res => {
     return res.json()
+  })
+  .then(respp => {
+    return simpanKlasifikasi
   })
   .then(rep => {
     nipStafSekolah = rep[0]
