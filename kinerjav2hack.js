@@ -10,13 +10,29 @@ $("#id_opmt_kinerja_utama_detail option").each(function(e,h){
 console.log(isi)
 
 backup:
-var tampung = []
-for(let i = 1; i < $('#table td').length;i += 11){
-    tampung.push($('#table td').eq(i).text())
-}
-console.log(tampung)
+    var tampung = []
+    for(let i = 1; i < $('#table td').length;i += 11){
+        tampung.push($('#table td').eq(i).text())
+    }
+    console.log(tampung)
+==========================================================================
+#### AMBIL ID KEGIATAN ####
+    var arr = [], idnya
+    $('#table tbody a').each(function(e, h){
+        idnya = $(h).attr('onclick').match(/\(\d+/)[0]
+        arr.push(idnya.substring(1,idnya.length))
+    })
+    console.log(arr)
+==========================================================================
+### HAPUS AKTIVITAS ###
 
-https://jsongrid.com/json-grid
+    arr.forEach((item)=>{
+        hapus_aktifitas_30(item)    
+    })
+
+=======================================================================
+### UBAH JSON JADI TABLE ###
+    https://jsongrid.com/json-grid
 */
 
 
