@@ -29,7 +29,13 @@ backup:
     arr.forEach((item)=>{
         hapus_aktifitas_30(item)    
     })
-
+========================================================================
+### VERIFIKASI ###
+    $('.cek').each(function(i, e){
+      if(!$(e).prop('checked')){
+         $(e).click()
+      }    
+    })
 =======================================================================
 ### UBAH JSON JADI TABLE ###
     https://jsongrid.com/json-grid
