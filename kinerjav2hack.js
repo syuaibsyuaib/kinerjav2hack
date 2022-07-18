@@ -54,11 +54,11 @@ var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dia
 
 let nip = ($('.info p').text()).match(/\d+/)[0]
 let gs = 'https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec'
-let nipStafSekolah, klasifikasi
+let nipStafSekolah = '', klasifikasi = ''
 let isi2 = {}, isi3 = {}
-let proto = location.protocol == 'http:' ? 'http:' : 'https:' 
+let proto = location.protocol == 'http:' ? 'http:' : 'https:'
 
-let simpanKlasifikasi = new Promise( (resolve, rejecet)=> {
+let simpanKlasifikasi = new Promise((resolve, rejecet) => {
   fetch(`${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/tambah_skp_30`)
     .then(res => {
       return res.text()
@@ -625,14 +625,16 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
   let jamMU = "13:30"
   let jamSU = "15:30"
 
-  nipStafSekolah.forEach(va => {
-    if (parmNip == va) {
-      jamMT = "07:00"
-      jamST = "09:00"
-      jamMU = "09:30"
-      jamSU = "13:00"
-    }
-  })
+  if (nipStafSekolah) {
+    nipStafSekolah.forEach(va => {
+      if (parmNip == va) {
+        jamMT = "07:00"
+        jamST = "09:00"
+        jamMU = "09:30"
+        jamSU = "13:00"
+      }
+    })
+  }
 
 
   let payloadTambah = {
@@ -693,11 +695,12 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
 }
 
 function tambahbaru() {
-  let urlTambah = "http://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+  let urlTambah = `${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30`
 
-  if (location.protocol == 'https:') {
-    urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
-  }
+  // if (location.protocol == 'https:') {
+  //   urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+  // }
+
   $('#loadingModal').modal('show')
   fetch(`${gs}?nip=${nip}`)
     .then(res => {
