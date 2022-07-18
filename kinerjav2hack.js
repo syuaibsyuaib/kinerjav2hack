@@ -56,9 +56,10 @@ let nip = ($('.info p').text()).match(/\d+/)[0]
 let gs = 'https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec'
 let nipStafSekolah, klasifikasi
 let isi2 = {}, isi3 = {}
+let proto = location.protocol == 'http:' ? 'http:' : 'https:' 
 
 let simpanKlasifikasi = new Promise( (resolve, rejecet)=> {
-  fetch('https://kinerjav2.pareparekota.go.id/c_aktifitas/tambah_skp_30')
+  fetch(`${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/tambah_skp_30`)
     .then(res => {
       return res.text()
     })
@@ -610,14 +611,14 @@ function kinerjahack() {
 
 function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan, parmThnAktif, parmBlnAktif, parmBanyakRow, parmResetRow, parmNip) {
 
-  let urlTambah = "https://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+  let urlTambah = `${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30`
 
-  let cariSkp = "https://kinerjav2.pareparekota.go.id/c_aktifitas/cari_skp_30"
-  let payloadCariSkp = "bln=3&thn=2022"
+  ///let cariSkp = `https://kinerjav2.pareparekota.go.id/c_aktifitas/cari_skp_30`
+  //let payloadCariSkp = "bln=3&thn=2022"
 
-  if (location.protocol == 'http:') {
-    urlTambah = "http://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
-  }
+  //if (location.protocol == 'http:') {
+  //  urlTambah = "http://kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30"
+  //}
 
   let jamMT = "08:30"
   let jamST = "12:00"
