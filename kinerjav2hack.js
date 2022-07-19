@@ -32,10 +32,11 @@ backup:
 ========================================================================
 ### VERIFIKASI ###
     $('.cek').each(function(i, e){
-      if(!$(e).prop('checked')){
-         $(e).click()
-      }    
-    })
+          if(!$(e).prop('checked')){
+            $(e).click()
+          }    
+        })
+    BootstrapDialog.closeAll()
 =======================================================================
 ### UBAH JSON JADI TABLE ###
     https://jsongrid.com/json-grid
@@ -50,7 +51,9 @@ var modalLoading = `<div class="modal" id="loadingModal" tabindex="-1" role="dia
 </div>
 </div>`
 
+$('body').prepend(modalLoading)
 
+$('#loadingModal').modal('show')
 
 let nip = ($('.info p').text()).match(/\d+/)[0]
 let gs = 'https://script.google.com/macros/s/AKfycbxN3_x0sEclDesQ_kPxDKPlCSJhhlWCRyog2iFg0CqSdV6CYXB2vGCtlqsUDmnDBW5S/exec'
@@ -58,7 +61,7 @@ let nipStafSekolah = '', klasifikasi = ''
 let isi2 = {}, isi3 = {}
 let proto = location.protocol == 'http:' ? 'http:' : 'https:'
 
-let simpanKlasifikasi = new Promise((resolve, rejecet) => {
+// let simpanKlasifikasi = new Promise((resolve, rejecet) => {
   fetch(`${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/tambah_skp_30`)
     .then(res => {
       return res.text()
@@ -80,33 +83,45 @@ let simpanKlasifikasi = new Promise((resolve, rejecet) => {
         body: JSON.stringify(isi3)
       })
         .then(res => {
-          return res.text()
+          return res.json()
         })
         .then(resp => {
-          resolve(resp)
+          nipStafSekolah = resp[0]
+          klasifikasi = resp[1]
+          $('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
+          $('#bln_skp').change(function () {
+            cari_skp()
+          })
+      
+          $('#tengah table:eq(0) td').eq(4).remove()
+          $('#loadingModal').modal('hide')
+          // resolve(resp)
         })
     })
-})
+// })
 
 
-fetch(`${gs}?mode=ambilNip`)
-  .then(res => {
-    return res.json()
-  })
-  .then(respp => {
-    return simpanKlasifikasi
-  })
-  .then(rep => {
-    nipStafSekolah = rep[0]
-    klasifikasi = rep[1]
-    $('body').prepend(modalLoading)
-    $('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
-    $('#bln_skp').change(function () {
-      cari_skp()
-    })
+// fetch(gs, {
+//   method: 'GET',
+//   body: JSON.stringify({ mode: ambilNip })
+// })
+//   .then(res => {
+//     return res.json()
+//   })
+//   .then(respp => {
+//     return simpanKlasifikasi
+//   })
+//   .then(rep => {
+//     nipStafSekolah = rep[0]
+//     klasifikasi = rep[1]
+//     $('body').prepend(modalLoading)
+//     $('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
+//     $('#bln_skp').change(function () {
+//       cari_skp()
+//     })
 
-    $('#tengah table:eq(0) td').eq(4).remove()
-  })
+//     $('#tengah table:eq(0) td').eq(4).remove()
+//   })
 
 let kuant = {
   "Proses Draft": "17",
