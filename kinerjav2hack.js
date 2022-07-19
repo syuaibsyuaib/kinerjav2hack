@@ -86,6 +86,7 @@ let proto = location.protocol == 'http:' ? 'http:' : 'https:'
           return res.json()
         })
         .then(resp => {
+          alert(resp)
           console.log(resp)
           nipStafSekolah = resp[0]
           klasifikasi = resp[1]
