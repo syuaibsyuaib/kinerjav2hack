@@ -632,11 +632,6 @@ function kinerjahack() {
 }
 
 function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan, parmThnAktif, parmBlnAktif, parmBanyakRow, parmResetRow, parmNip) {
-  let ok = confirm("Yakin jeki besti?")
-
-  if (!ok) {
-    return
-  }
 
   let urlTambah = `${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30`
 
@@ -722,6 +717,12 @@ function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parm
 }
 
 function tambahbaru() {
+  let ok = confirm("Yakin jeki besti?")
+
+  if (!ok) {
+    return
+  }
+  
   let urlTambah = `${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30`
 
   // if (location.protocol == 'https:') {
