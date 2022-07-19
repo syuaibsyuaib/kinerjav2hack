@@ -86,6 +86,7 @@ let proto = location.protocol == 'http:' ? 'http:' : 'https:'
           return res.json()
         })
         .then(resp => {
+          console.log(resp)
           nipStafSekolah = resp[0]
           klasifikasi = resp[1]
           $('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
