@@ -62,44 +62,44 @@ let isi2 = {}, isi3 = {}
 let proto = location.protocol == 'http:' ? 'http:' : 'https:'
 
 // let simpanKlasifikasi = new Promise((resolve, rejecet) => {
-  fetch(`${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/tambah_skp_30`)
-    .then(res => {
-      return res.text()
+fetch(`${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/tambah_skp_30`)
+  .then(res => {
+    return res.text()
+  })
+  .then(resp => {
+    $($($(resp)[0]).find('#id_opmt_kinerja_utama_detail option')).each(function (e, h) {
+      isi2[$(h).text()] = $(h).val()
     })
-    .then(resp => {
-      $($($(resp)[0]).find('#id_opmt_kinerja_utama_detail option')).each(function (e, h) {
-        isi2[$(h).text()] = $(h).val()
+  })
+  .then(respp => {
+    for (let i = 1; i < Object.keys(isi2).length; i++) {
+      isi3[(Object.keys(isi2)[i]).trim()] = isi2[Object.keys(isi2)[i]]
+    }
+  })
+  .then(resppp => {
+    isi3["nip"] = nip
+    fetch(gs, {
+      method: 'POST',
+      body: JSON.stringify(isi3)
+    })
+      .then(res => {
+        return res.json()
       })
-    })
-    .then(respp => {
-      for (let i = 1; i < Object.keys(isi2).length; i++) {
-        isi3[(Object.keys(isi2)[i]).trim()] = isi2[Object.keys(isi2)[i]]
-      }
-    })
-    .then(resppp => {
-      isi3["nip"] = nip
-      fetch(gs, {
-        method: 'POST',
-        body: JSON.stringify(isi3)
+      .then(resp => {
+        alert(resp)
+        console.log(resp)
+        nipStafSekolah = resp[0]
+        klasifikasi = resp[1]
+        $('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
+        $('#bln_skp').change(function () {
+          cari_skp()
+        })
+
+        $('#tengah table:eq(0) td').eq(4).remove()
+        $('#loadingModal').modal('hide')
+        // resolve(resp)
       })
-        .then(res => {
-          return res.json()
-        })
-        .then(resp => {
-          alert(resp)
-          console.log(resp)
-          nipStafSekolah = resp[0]
-          klasifikasi = resp[1]
-          $('nav').append('<button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="tambahbaru()">IMPORT</button><button class="navbar-custom-menu" style="background-color:red;color:white;padding:17px 30px;border:none;margin-right:5px" onclick="kinerjahack()">INJECT</button>')
-          $('#bln_skp').change(function () {
-            cari_skp()
-          })
-      
-          $('#tengah table:eq(0) td').eq(4).remove()
-          $('#loadingModal').modal('hide')
-          // resolve(resp)
-        })
-    })
+  })
 // })
 
 
@@ -521,6 +521,11 @@ function ubahBulan(parm) {
 }
 
 function kinerjahack() {
+  var ok = confirm("Yakin jeki?")
+  if (!ok) {
+    return
+  }
+
   var aktifitas = 2 //aktifitas SKP
   var skp = 3 //SKP tahunan
   var tgl = 1 //tanggal
@@ -627,6 +632,11 @@ function kinerjahack() {
 }
 
 function kirim(parmTgl, parmAktifitas, parmKuantitas, parmDd, parmJamMulai, parmJamSelesai, parmKinerja, parmIdKegiatan, parmThnAktif, parmBlnAktif, parmBanyakRow, parmResetRow, parmNip) {
+  let ok = confirm("Yakin jeki besti?")
+
+  if (!ok) {
+    return
+  }
 
   let urlTambah = `${proto}//kinerjav2.pareparekota.go.id/c_aktifitas/aksi_tambah_skp_30`
 
